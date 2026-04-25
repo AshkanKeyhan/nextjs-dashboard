@@ -1,10 +1,8 @@
 import bcrypt from 'bcrypt';
-import {Pool} from 'pg';
+import { pool } from '../lib/pgpool';
 import { invoices, customers, revenue, users } from '../lib/placeholder-data';
 
-const pool = new Pool({
-  connectionString: process.env.POSTGRES_URL
-})
+
 async function seedUsers() {
   await pool.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`);
   await pool.query(`CREATE TABLE IF NOT EXISTS users (
