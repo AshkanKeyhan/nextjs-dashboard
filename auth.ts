@@ -7,11 +7,9 @@ import bcrypt from 'bcrypt';
 import { Pool } from 'pg';
 
 export const pool = new Pool({
-  connectionString: process.env.POSTGRES_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  connectionString: process.env.POSTGRES_URL
 });
+
 
  
 async function getUser(email: string): Promise<User | undefined> {
